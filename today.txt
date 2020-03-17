@@ -1,0 +1,19 @@
+import xlrd
+
+wb = xlrd.open_workbook("Test_Json.xlsx")
+sheet = wb.sheet_by_name("Queries")
+row_entries = sheet.get_rows()
+column_names_dict ={}
+for i in range(sheet.ncols):
+    column_names_dict[i] = sheet.cell_value(0, i)
+
+print(column_names_dict)
+row_entry_list =[]
+for i in range(sheet.nrows):
+    row_entry_dict = {}
+    if i not in (0,1,2):
+       for j in range(sheet.ncols):
+            row_entry_dict[column_names_dict[j]] = sheet.cell_value(i, j)
+            row_entry_list.append(row_entry_dict.copy())
+
+print(row_entry_list)
