@@ -1,0 +1,31 @@
+"""conversion of json to python"""
+import json
+json_obj =  '{ "Name":"David", "Class":"I", "Age":6 }'
+print(type(json_obj))
+py_obj=json.loads(json_obj)
+print(json_obj)
+print("\nname:",py_obj["Name"])
+print("\nclass:",py_obj["Class"])
+print("\nAge: ",py_obj["Age"])
+
+______________________________________________________________________________________________
+
+"""conversion of python to json"""
+import json
+py_obj={"name":"David","class":"I","age":6}
+print(type(py_obj))
+json_obj=json.dumps(py_obj)
+print(json_obj)
+print(type(json_obj))
+
+_______________________________________________________________________________________________
+"""Write a Python program to convert Python objects into JSON strings. Print all the values"""
+import json
+py_obj={"name":"David","class":"I","age":6}
+py_list=["red","green"]
+json_string=json.dumps(py_obj)
+json_string1=json.dumps(py_list)
+print(json_string)
+print(json_string1)
+print(type(json_string))
+print(type(json_string1))

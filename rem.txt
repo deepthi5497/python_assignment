@@ -1,0 +1,490 @@
+Please write a program to generate all sentences where subject is in ["I", "You"] and verb is in ["Play", "Love"] and the object is in ["Hockey","Football"].
+
+Hints:
+Use list[index] notation to get a element from a list.
+
+Solution:
+
+subjects=["I", "You"]
+verbs=["Play", "Love"]
+objects=["Hockey","Football"]
+for i in range(len(subjects)):
+    for j in range(len(verbs)):
+        for k in range(len(objects)):
+            sentence = "%s %s %s." % (subjects[i], verbs[j], objects[k])
+            print sentence
+
+____________________________________________________________________________________________________________________
+
+By using list comprehension, please write a program to print the list after removing the 0th, 2nd, 4th,6th numbers in [12,24,35,70,88,120,155].
+
+Hints:
+Use list comprehension to delete a bunch of element from a list.
+Use enumerate() to get (index, value) tuple.
+
+Solution:
+
+li = [12,24,35,70,88,120,155]
+li = [x for (i,x) in enumerate(li) if i%2!=0]
+print li
+______________________________________________________________________________________________________________________
+By using list comprehension, please write a program generate a 3*5*8 3D array whose each element is 0.
+
+Hints:
+Use list comprehension to make an array.
+
+Solution:
+
+array = [[ [0 for col in range(8)] for col in range(5)] for row in range(3)]
+print array
+__________________________________________________________________________________________________________________
+By using list comprehension, please write a program to print the list after removing the 0th,4th,5th numbers in [12,24,35,70,88,120,155].
+
+Hints:
+Use list comprehension to delete a bunch of element from a list.
+Use enumerate() to get (index, value) tuple.
+
+Solution:
+
+li = [12,24,35,70,88,120,155]
+li = [x for (i,x) in enumerate(li) if i not in (0,4,5)]
+print li
+___________________________________________________________________________________________________________________
+With a given list [12,24,35,24,88,120,155,88,120,155], write a program to print this list after removing all duplicate values with original order reserved.
+
+Hints:
+Use set() to store a number of values without duplicate.
+
+Solution:
+
+def removeDuplicate( li ):
+    newli=[]
+    seen = set()
+    for item in li:
+        if item not in seen:
+            seen.add( item )
+            newli.append(item)
+
+    return newli
+
+li=[12,24,35,24,88,120,155,88,120,155]
+print removeDuplicate(li)
+_______________________________________________________________________________________________________________
+
+Define a class Person and its two child classes: Male and Female. All classes have a method "getGender" which can print "Male" for Male class and "Female" for Female class.
+
+Hints:
+Use Subclass(Parentclass) to define a child class.
+
+Solution:
+
+class Person(object):
+    def getGender( self ):
+        return "Unknown"
+
+class Male( Person ):
+    def getGender( self ):
+        return "Male"
+
+class Female( Person ):
+    def getGender( self ):
+        return "Female"
+
+aMale = Male()
+aFemale= Female()
+print aMale.getGender()
+print aFemale.getGender()
+
+
+
+#----------------------------------------#
+Question:
+
+Please write a program which count and print the numbers of each character in a string input by console.
+
+Example:
+If the following string is given as input to the program:
+
+abcdefgabc
+
+Then, the output of the program should be:
+
+a,2
+c,2
+b,2
+e,1
+d,1
+g,1
+f,1
+
+Hints:
+Use dict to store key/value pairs.
+Use dict.get() method to lookup a key with default value.
+
+Solution:
+
+dic = {}
+s=raw_input()
+for s in s:
+    dic[s] = dic.get(s,0)+1
+print '\n'.join(['%s,%s' % (k, v) for k, v in dic.items()])
+__________________________________________________________________________________________________________________________
+Question:
+
+Please write a program which prints all permutations of [1,2,3]
+
+
+Hints:
+Use itertools.permutations() to get permutations of list.
+
+Solution:
+
+import itertools
+print list(itertools.permutations([1,2,3]))
+
+#----------------------------------------#
+Question:
+
+Write a program to solve a classic ancient Chinese puzzle: 
+We count 35 heads and 94 legs among the chickens and rabbits in a farm. How many rabbits and how many chickens do we have?
+
+Hint:
+Use for loop to iterate all possible solutions.
+
+Solution:
+
+def solve(numheads,numlegs):
+    ns='No solutions!'
+    for i in range(numheads+1):
+        j=numheads-i
+        if 2*i+4*j==numlegs:
+            return i,j
+    return ns,ns
+
+numheads=35
+numlegs=94
+solutions=solve(numheads,numlegs)
+print solutions
+____________________________________________________________________________
+Please write a binary search function which searches an item in a sorted list. The function should return the index of element to be searched in the list.
+
+
+Hints:
+Use if/elif to deal with conditions.
+
+
+Solution:
+
+import math
+def bin_search(li, element):
+    bottom = 0
+    top = len(li)-1
+    index = -1
+    while top>=bottom and index==-1:
+        mid = int(math.floor((top+bottom)/2.0))
+        if li[mid]==element:
+            index = mid
+        elif li[mid]>element:
+            top = mid-1
+        else:
+            bottom = mid+1
+
+    return index
+
+li=[2,5,7,9,11,17,222]
+print bin_search(li,11)
+print bin_search(li,12)
+_____________________________________________________________________________________________________________________
+Question:
+
+Please generate a random float where the value is between 10 and 100 using Python math module.
+
+
+
+Hints:
+Use random.random() to generate a random float in [0,1].
+
+
+Solution:
+
+import random
+print random.random()*100
+
+#----------------------------------------#
+Question:
+
+Please generate a random float where the value is between 5 and 95 using Python math module.
+
+
+
+Hints:
+Use random.random() to generate a random float in [0,1].
+
+
+Solution:
+
+import random
+print random.random()*100-5
+_______________________________________________________________________________________________________
+Question:
+
+
+Please write assert statements to verify that every number in the list [2,4,6,8] is even.
+
+
+
+Hints:
+Use "assert expression" to make assertion.
+
+
+Solution:
+
+li = [2,4,6,8]
+for i in li:
+    assert i%2==0
+_____________________________________________________________________________________________________________________
+Question:
+
+Please write a program using generator to print the numbers which can be divisible by 5 and 7 between 0 and n in comma separated form while n is input by console.
+
+Example:
+If the following n is given as input to the program:
+
+100
+
+Then, the output of the program should be:
+
+0,35,70
+
+Hints:
+Use yield to produce the next value in generator.
+
+In case of input data being supplied to the question, it should be assumed to be a console input.
+
+Solution:
+
+def NumGenerator(n):
+    for i in range(n+1):
+        if i%5==0 and i%7==0:
+            yield i
+
+n=int(raw_input())
+values = []
+for i in NumGenerator(n):
+    values.append(str(i))
+
+print ",".join(values)
+
+__________________________________________________________________________________________________________
+Please write a program using generator to print the even numbers between 0 and n in comma separated form while n is input by console.
+
+Example:
+If the following n is given as input to the program:
+
+10
+
+Then, the output of the program should be:
+
+0,2,4,6,8,10
+
+Hints:
+Use yield to produce the next value in generator.
+
+In case of input data being supplied to the question, it should be assumed to be a console input.
+
+Solution:
+
+def EvenGenerator(n):
+    i=0
+    while i<=n:
+        if i%2==0:
+            yield i
+        i+=1
+
+
+n=int(raw_input())
+values = []
+for i in EvenGenerator(n):
+    values.append(str(i))
+
+print ",".join(values)
+
+
+#----------------------------------------#
+
+Question:
+
+Please write a program using generator to print the numbers which can be divisible by 5 and 7 between 0 and n in comma separated form while n is input by console.
+
+Example:
+If the following n is given as input to the program:
+
+100
+
+Then, the output of the program should be:
+
+0,35,70
+
+Hints:
+Use yield to produce the next value in generator.
+
+In case of input data being supplied to the question, it should be assumed to be a console input.
+
+Solution:
+
+def NumGenerator(n):
+    for i in range(n+1):
+        if i%5==0 and i%7==0:
+            yield i
+
+n=int(raw_input())
+values = []
+for i in NumGenerator(n):
+    values.append(str(i))
+
+print ",".join(values)
+
+
+#----------------------------------------#
+Question:
+
+
+Print a unicode string "hello world".
+
+Hints:
+
+Use u'strings' format to define unicode string.
+
+Solution:
+
+unicodeString = u"hello world!"
+print unicodeString
+___________________________________________________________________________________________________________
+Write a program to read an ASCII string and to convert it to a unicode string encoded by utf-8.
+
+Hints:
+
+Use unicode() function to convert.
+
+Solution:
+
+s = raw_input()
+u = unicode( s ,"utf-8")
+print u
+___________________________________________________________________________________________________________
+#----------------------------------------#
+Question:
+
+Write a special comment to indicate a Python source code file is in unicode.
+
+Hints:
+
+Solution:
+
+# -*- coding: utf-8 -*-
+
+#----------------------------------------#
+Question:
+
+Write a program to compute 1/2+2/3+3/4+...+n/n+1 with a given n input by console (n>0).
+
+Example:
+If the following n is given as input to the program:
+
+5
+
+Then, the output of the program should be:
+
+3.55
+
+In case of input data being supplied to the question, it should be assumed to be a console input.
+
+Hints:
+Use float() to convert an integer to a float
+
+Solution:
+
+n=int(raw_input())
+sum=0.0
+for i in range(1,n+1):
+    sum += float(float(i)/(i+1))
+print sum
+
+
+#----------------------------------------#
+Question:
+
+Write a program to compute:
+
+f(n)=f(n-1)+100 when n>0
+and f(0)=1
+
+with a given n input by console (n>0).
+
+Example:
+If the following n is given as input to the program:
+
+5
+
+Then, the output of the program should be:
+
+500
+
+In case of input data being supplied to the question, it should be assumed to be a console input.
+
+Hints:
+We can define recursive function in Python.
+
+Solution:
+
+def f(n):
+    if n==0:
+        return 0
+    else:
+        return f(n-1)+100
+
+n=int(raw_input())
+print f(n)
+
+#----------------------------------------#
+
+Question:
+
+
+The Fibonacci Sequence is computed based on the following formula:
+
+
+f(n)=0 if n=0
+f(n)=1 if n=1
+f(n)=f(n-1)+f(n-2) if n>1
+
+Please write a program to compute the value of f(n) with a given n input by console.
+
+Example:
+If the following n is given as input to the program:
+
+7
+
+Then, the output of the program should be:
+
+13
+
+In case of input data being supplied to the question, it should be assumed to be a console input.
+
+Hints:
+We can define recursive function in Python.
+
+
+Solution:
+
+def f(n):
+    if n == 0: return 0
+    elif n == 1: return 1
+    else: return f(n-1)+f(n-2)
+
+n=int(raw_input())
+print f(n)
+
+
+#----------------------------------------#
+

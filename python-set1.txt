@@ -1,0 +1,169 @@
+1.For the below binary number , count the Occurrence of sequence '101'
+		"10101010100111101"
+
+string1="10101010100111101"
+count=0
+for i in range(0,len(string1)-2):
+    if string1[i]=="1" and string1[i+1]=="0" and string1[i+2]=="1":
+        count=count+1
+print(count)
+_________________________________________________________________________________________________________________________________________________________________
+2.For the below matrix , calculate both the diagonal and print the value.(Hint: consider each row as a list object)
+
+3 8 7
+8 7 9
+1 6 0
+
+list1=[[3,8,7],[8,7,9],[1,6,0]]
+d1=0
+d2=0
+for i in range(0,len(list1)):
+    for j in range(0,len(list1[i])):
+        if i==j:
+            d1=d1+list1[i][j]
+        if i+j==(len(list1)-1):
+            d2=d2+list1[i][j]
+print("diagonal1:",d1)
+print("diagonal:",d2)
+__________________________________________________________________________________________________________________________________________________________________
+3.:Rotate the above matrix by 90 degree anticlockwise
+hint :convert row to column and column to row
+
+
+def rotate_90_degree_anticlckwise(matrix):
+    new_matrix = []
+    for i in range(len(matrix[0]), 0, -1):
+        new_matrix.append(list(map(lambda x: x[i-1], matrix)))
+
+    return new_matrix
+print(rotate_90_degree_anticlckwise([[3,8,7],[8,7,9],[1,6,0]]))
+_________________________________________________________________________________________________________________________________________________________________
+4: The string abcabcabc........ goes till 1111 . print the number of Occurrence of 'ca'
+
+str1="abc"
+str2=str1*370+"a"
+print(str2)
+print(str2.count("ca"))
+_______________________________________________________________________________________________________________________________________________________________
+5: Convert the string as below.
+input : abcDEwQ
+output: ABCdeWq
+
+string1="abcDEwQ"
+print(string1.swapcase())
+
+string1="abcDEwQ"
+str1=""
+for char in string1:
+    if char.islower():
+        str1+=char.upper()
+    elif char.isupper():
+        str1+=char.lower()
+print(str1)
+________________________________________________________________________________________________________________________________________________________________
+
+6.Find the ordered longest alphabetical sequence.
+abccdefabcdefae
+
+string1=raw_input("enter a string:")
+string=""
+list1=[]
+length=""
+for i in range(len(string1)-1):
+    if string1[i]<string1[i+1]:
+        string=string+string1[i]
+    else:
+        string=string+string1[i]
+        list1.append(string)
+        string=""
+print(list1)
+for word in list1:
+    # print(word)
+    if len(word)>len(length):
+        length=word
+print (length)
+
+_________________________________________________________________________________________________________________________________________________________________
+# 7:Find the sum of multiples of 3 and 5 between 1 to 1000
+sum=0
+for i in range(1,10):
+    if i%3==0 or i%5==0:
+        # print (i)
+        sum=sum+i
+print(sum)
+_____________________________________________________________________________________________________________________________________________________________________ 
+8.Display the phone number as below and also print the last 4 digit in ascending order
+# input : 9993452133
+# output :xxx-xxx-xxxx
+
+string=input("enter a number:")
+string1=''
+list1=[]
+for i in range(0,len(string)-4):
+  string1=string1+string[i]
+  if i==2 or i==5:
+    string1=string1+'-'
+for i in range(6,len(string)):
+  list1.append(int(string[i]))
+# print(list1)
+list1.sort()
+for i in list1:
+  string1=string1+str(i)
+print(string1)
+
+
+_________________________________________________________________________________________________________________________________________________________________
+9."There are 26 alphabets in English out of which 5 are vowels and 21 are consonants"
+Count the sum of numbers in the above statement using regular expression
+
+import re
+string1="There are 26 alphabets in English out of which 5 are vowels and 21 are consonants"
+str1=re.findall(r"\d+",string1)
+print(str1)
+sum1=0
+for val in str1:
+    sum1=sum1+int(val)
+print(sum1)
+_________________________________________________________________________________________________________________________________________________________________
+10.anagram : sample inputs : tear, rate ; Find if these words are anagram or not. Program should accept two inputs from user
+
+string1=input("enter a string")
+string2=input("enter a second string")
+if sorted(string1)==sorted(string2):
+    print("anagram")
+else:
+    print("not anagram")
+______________________________________________________________________________________________________________________________________________________________
+11;With a given integral number n, change the program to generate a dictionary that contains (i, cube of i) such that is an integral number 
+between 1 and n (both included).and then the program should print the dictionary.
+Suppose the following input is supplied to the program:
+7
+Then, the output should be:
+{1: 1, 2: 8, 3: 27, 4: 64, 5: 125, 6: 216, 7: 373}
+Take the input from the user via console.
+
+
+number=int(input("enter range"))
+dict1={}
+for i in range(1,number+1):
+    dict1[i]=i**3
+print(dict1)
+
+______________________________________________________________________________________________________________________________________________________________
+
+12.find if the below numbers are Armstrong number
+a: 153
+b:1634
+c: 876
+
+number=input("enter a number")
+sum=0
+temp=number
+while(temp>0):
+    digit=temp%10
+    sum=sum+digit**3
+    temp=temp//10
+if number==sum:
+    print("armstrong")
+else:
+    print("not an armstrong")

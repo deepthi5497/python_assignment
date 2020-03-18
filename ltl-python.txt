@@ -1,0 +1,144 @@
+"""prime or not"""
+n=int(input("enter number: "))
+list1=[]
+count=0
+for i in range(1,n+1):
+  if n %i==0:
+    list1.append(i)
+    count=count+1
+  else:
+    continue
+if count==2:
+  print("prime")
+else:
+  print("not")
+print(list1)
+______________________________________________________________________________
+"""fibonacci series"""
+n=int(input("how any series?"))
+a = 0
+b = 1
+print(a)
+print(b)
+for i in range(1, n):
+     c = a + b
+     a = b
+     b = c
+     print(c)
+
+def fib(number):
+  if number in(0,1):
+    return number
+  else:
+    return fib(number-1)+fib(number-2)
+number=int(input("enter how many series:"))
+for n in range(0,number):
+  print(fib(n))
+____________________________________________________________________________________
+"""3.String reverse using 'for' loop"""
+str1=input("enter string: ")
+str2=""
+print(str1[-1::-1])
+for i in str1:
+  str2=i+str2
+print(str2)
+_________________________________________________________________________________________________________________________
+""" 4, Multiplication table """
+num=int(input("enter number for multiplication:"))
+for i in range(1,11):
+  print(num ,"*",i,"=",num*i)
+
+for i in range(2,6):
+  for j in range(1,11):
+    print(i ,"*",j,"=",i*j)
+________________________________________________________________________
+"""6. Anagram """
+str1=input("enter string:")
+str2=input("enter another string:")
+if sorted(str1)==sorted(str2):
+    print("anagram")
+else:
+    print("not")
+______________________________________________________
+"""9, Swap cases in a string """
+str1=input("enter string:")
+print(str1.swapcase())
+___________________________________________________________________
+"""10, Find consecutive character count in string """
+str1=input("enter string: ")
+dict1={}
+for i in str1:
+  if i in dict1:
+    dict1[i]=dict1[i]+1
+  else:
+    dict1[i]=1
+print(dict1)
+__________________________________________________________________________________
+"""11, Count of characters in string """
+str1=input("enter string: ")
+count=0
+for i in str1:
+  if i>='a' and i<='z' or i>='A' and i<='Z':
+    count=count+1
+print(count)
+_____________________________________________________________________________________________
+"""12, Sort list based on second character in each element in string """
+list1=['apple','banana','orange','grapes','mango']
+print(sorted(list1,key=lambda i:i[1]))
+________________________________________________________________________________________________
+"""13, extract number and alphabets in separate list """
+str1=input("enter string: ")
+list1=[]
+list2=[]
+for i in str1:
+  if i>='a' and i<='z' or i>='A' and i<='Z':
+    list1.append(i)
+  if i>='0' and i<='9':
+    list2.append(i)
+print(list1)
+print(list2)
+_________________________________________________________________________________
+"""14, palindrome """
+str1=input("enter string: ")
+str2=""
+for i in str1:
+  str2=i+str2
+print(str2)
+if str2==str1:
+  print("palindrome")
+else:
+  print("not a plaindrome")
+________________________________________________________________________________
+"""15, Convert timestamp to date format """
+from datetime import datetime
+timestamp=1245676776
+now = datetime.now()
+timestamp = datetime.timestamp(now)
+print(timestamp)
+print(now)
+print(datetime.fromtimestamp(timestamp))
+__________________________________________________________________________________________
+
+"""16, Split the phone number into 3/3/4 without using map function """
+str1=input("enter phone number:")
+list1=[]
+s=str1[:3]
+list1.append(s)
+t=str1[3:6]
+list1.append(t)
+x=str1[6:]
+list1.append(x)
+print("/".join(list1))
+
+res=str1[:3]+"/"+str1[3:6]+"/"+str1[6:]
+print(res)
+_____________________________________________________________________________________
+"""17, Count number of capital letters in a file"""
+with open("sample.txt","r")as s:
+  # print(s.readline())
+  count=0
+  for row in s:
+    for char in row:
+      if char.isupper():
+        count=count+1
+  print(count)

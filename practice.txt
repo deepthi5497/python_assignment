@@ -1,0 +1,138 @@
+"""Write a program which will find all such numbers which are divisible by 7 but are not a multiple of 5,
+between 2000 and 3200 (both included).
+The numbers obtained should be printed in a comma-separated sequence on a single line."""
+list1=[]
+for num in range(2000,3200):
+    if num%7==0 and num%5!=0:
+        list1.append(str(num))
+print ",".join(list1)
+"""Write a program which can compute the factorial of a given numbers.
+The results should be printed in a comma-separated sequence on a single line.
+Suppose the following input is supplied to the program:
+8
+Then, the output should be:
+40320"""
+def fact(num):
+    if num==0:
+        return 1
+    else:
+        return num*fact(num-1)
+num=int(input("enter number to find factorial"))
+print fact(num)
+"""With a given integral number n, write a program to generate a dictionary that contains (i, i*i) such that is an 
+integral number between 1 and n (both included). and then the program should print the dictionary.
+Suppose the following input is supplied to the program:
+8
+Then, the output should be:
+{1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64}"""
+num=int(input("enter range"))
+res=dict()
+for val in range(0,num+1):
+    res[val]=val*val
+print(res)
+"""Write a program which accepts a sequence of comma-separated numbers from console and generate a list and a tuple 
+which contains every number.
+Suppose the following input is supplied to the program:
+34,67,55,33,12,98
+Then, the output should be:
+['34', '67', '55', '33', '12', '98']
+('34', '67', '55', '33', '12', '98')"""
+numbers=raw_input("enter numbers by comma seperated").split(",")
+print list(numbers)
+print tuple(numbers)
+"""Define a class which has at least two methods:
+getString: to get a string from console input
+printString: to print the string in upper case.
+Also please include simple test function to test the class methods.
+"""
+class Sample:
+    def __init__(self):
+        self.s = ""
+
+    def get_string(self):
+        self.s = raw_input("enter string")
+
+    def print_string(self):
+       print self.s.upper()
+
+
+obj = Sample()
+obj.get_string()
+obj.print_string()
+"""Write a program that calculates and prints the value according to the given formula:
+Q = Square root of [(2 * C * D)/H]
+Following are the fixed values of C and H:
+C is 50. H is 30.
+D is the variable whose values should be input to your program in a comma-separated sequence.
+Example
+Let us assume the following comma separated input sequence is given to the program:
+100,150,180
+The output of the program should be:
+18,22,24"""
+import math
+d = raw_input("enter values in comma separated").split(",")
+res = []
+c,h=50,30
+for val in d:
+    res.append(str(int(round(math.sqrt(2*c*float(val)/h)))))
+print ",".join(res)
+
+import math
+d = raw_input("enter values in comma separated").split(",")
+c, h = 50, 30
+print ",".join([str(int(round(math.sqrt(2*c*float(val)/h)))) for val in d])
+"""Write a program which takes 2 digits, X,Y as input and generates a 2-dimensional array. 
+The element value in the i-th row and j-th column of the array should be i*j.
+Note: i=0,1.., X-1; j=0,1,
+Example
+Suppose the following inputs are given to the program:
+3,5
+Then, the output of the program should be:
+[[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8]] 
+"""
+
+
+"""
+Write a program that accepts a comma separated sequence of words as input and prints the words in a comma-separated 
+sequence after sorting them alphabetically.
+Suppose the following input is supplied to the program:
+without,hello,bag,world
+Then, the output should be:
+bag,hello,without,world
+"""
+list1=raw_input("enter words with comma separated").split(",")
+list1.sort()
+print ",".join(list1)
+"""
+Write a program that accepts sequence of lines as input and prints the lines after making all characters in the 
+sentence capitalized.Suppose the following input is supplied to the program:
+Hello world
+Practice makes perfect
+Then, the output should be:
+HELLO WORLD
+PRACTICE MAKES PERFECT
+"""
+list1=[]
+while True:
+    string1=raw_input("enter string")
+    if string1:
+        list1.append(string1.upper())
+    else:
+        break
+for word in list1:
+    print word
+"""
+Write a program that accepts a sequence of whitespace separated words as input and prints the words after 
+removing all duplicate words and sorting them alphanumerically.
+Suppose the following input is supplied to the program:
+hello world and practice makes perfect and hello world again
+Then, the output should be:
+again and hello makes perfect practice world
+"""
+string1=raw_input("enter string").split(" ")
+list1=[]
+for word in string1:
+    list1.append(word)
+print(list1)
+res=" ".join(sorted(set(list1)))
+print(res)

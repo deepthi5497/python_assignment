@@ -1,0 +1,20 @@
+mysql> select distinct(director),title,stars from(select title,director,stars,dense_rank() over(partition by director order by stars desc)as rnk from movie m left join rating r on m.mid=r.mid where director is not null)as s where rnk=1;
++------------------+-------------------------+-------+
+| director         | title                   | stars |
++------------------+-------------------------+-------+
+| George Lucas     | Star Wars               |  NULL |
+| James Cameron    | Avatar                  |     5 |
+| Robert Wise      | The Sound of Music      |     3 |
+| Steven Spielberg | Raiders of the Lost Ark |     4 |
+| Victor Fleming   | Gone with the Wind      |     4 |
++------------------+-------------------------+-------+
+5 rows in set (0.00 sec)
+
+
+mysql> select title,avg from(select m.title,avg(r.stars) avg,dense_rank() over(order by avg(r.stars) desc) y from movie m join rating r on r.mid=m.mid group by m.title order by avg desc) as z where y=1;
++------------+--------+
+| title      | avg    |
++------------+--------+
+| Snow White | 4.5000 |
++------------+--------+
+1 row in set (0.00 sec)

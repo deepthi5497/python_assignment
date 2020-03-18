@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>square_root</title>
+</head>
+<body>
+<form action="" method="post">
+    enter value:<input type="text" name="x_value">
+    <br>
+    <input type="submit" value="sqrt">
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+mysql> select f.id2,h1.name from friend f join highschooler h on f.id1=h.id join highschooler h1 on f.id2=h1.id where h.name="gabriel";
++------+-----------+
+| id2  | name      |
++------+-----------+
+| 1510 | Jordan    |
+| 1709 | Cassandra |
+| 1782 | Andrew    |
+| 1247 | Alexis    |
+| 1501 | Jessica   |
++------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select l.id1,l.id2,h1.name,h.grade,h1.grade from likes l join highschooler h on l.id1=h.id join highschooler h1 on l.id2=h1.id where h.grade-h1.grade=2;
++------+------+-------+-------+-------+
+| id1  | id2  | name  | grade | grade |
++------+------+-------+-------+-------+
+| 1025 | 1101 | Haley |    12 |    10 |
++------+------+----
+
+mysql> select l.id1,h.name,h.grade,l.id2,h1.name,h1.grade from likes  l join likes l1 on l.id1=l1.id2 and l.id2=l1.id1 join highschooler h on l.id1=h.id join highschooler h1 on l.id2=h1.id where h.name>h1.name;
++------+---------+-------+------+-----------+-------+
+| id1  | name    | grade | id2  | name      | grade |
++------+---------+-------+------+-----------+-------+
+| 1689 | Gabriel |     9 | 1709 | Cassandra |     9 |
+| 1934 | Kyle    |    12 | 1501 | Jessica   |    11 |
++------+---------+-------+------+-----------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select h.id,h.name,h.grade from highschooler h left join likes l on h.id=l.id1 or h.id=l.id2 where l.id1 is null order by h.grade,h.name;
++------+---------+-------+
+| id   | name    | grade |
++------+---------+-------+
+| 1510 | Jordan  |     9 |
+| 1381 | Tiffany |     9 |
+| 1661 | Logan   |    12 |
++------+---------+-------+
+3 rows in set (0.00 sec)

@@ -1,0 +1,135 @@
+1.
+""" Write a Python program that matches a string that has an 'a' followed by anything, ending in 'b'."""
+import re
+str1="abdbbbbacd"
+print(re.findall("^a.*b$",str1))
+
+_____________________________________________________________________________________________________
+2.
+""". Write a Python program to find sequences of one upper case letter followed by lower case letters"""
+import re
+str1="CabZxsre"
+print(re.findall('[A-Z]{1}[a-z]+',str1))
+
+_________________________________________________________________________________________________________________
+3.
+"""Write a Python program that matches a word at end of string, with optional punctuation"""
+import re
+str1="The quick brown fox jumps over the lazy dog."
+print(re.findall("\w+\S*$",str1))
+
+______________________________________________________________________________________________________________________
+4.
+""" Write a Python program that matches a word containing 'z'."""
+import re
+str1="The quick brown fox jumps over the lazy dog."
+print(re.findall('\w+[z]',str1))
+
+_________________________________________________________________________________________________________________________
+5.
+"""Write a Python program that matches a word at the beginning of a string."""
+import re
+str1="The quick brown fox jumps over the lazy dog."
+res=re.search('^The',str1)
+print(res.group())
+
+
+_______________________________________________________________________________________________________________________
+6.
+"""Write a Python program to match a string that contains only upper and lowercase letters, numbers, and underscores."""
+import re
+str1="The_asdf$ijuihyu_FG*FDKHF_0987654"
+print(re.findall('[a-zA-Z_]+',str1))
+_____________________________________________________________________________________________________________________
+7.
+"""
+ Write a Python program that matches a word containing 'z'
+ """
+import re
+str1="lazy buzz "
+print(re.findall('\w\S[z]\w',str1))
+
+_____________________________________________________________________________________________________________________
+8.
+"""Write a Python program to search some literals strings in a string.
+Sample text : 'The quick brown fox jumps over the lazy dog.'
+Searched words : 'fox', 'dog', 'horse'
+"""
+import re
+str1='The quick brown fox jumps over the lazy dog.'
+print(re.findall(input("enter word : "),str1))
+
+_______________________________________________________________________________________________________________________
+9.
+"""Write a Python program to check for a number at the end of a string"""
+import re
+str1="av2j123nhkhkjhl09w1234sdw65"
+print(re.findall('[0-9]$',str1))
+
+_______________________________________________________________________________________________________________________________________________
+10.
+""" Write a Python program to remove leading zeros from an IP address."""
+import re
+str1="100.200.00354"
+res=re.sub('\.[0]*', '.', str1)
+print(res)
+
+___________________________________________________________________________________________________________________________________________________
+11.
+"""Write a Python program to find all adverbs and their positions in a given sentence."""
+import re
+str1 = "he has no Clearly excuse for such behavior."
+res=re.search("\w+ly",str1)
+res1=res.group()
+print(res.start(),res.end(),res.group())
+_____________________________________________________________________________________________________________________________________________________
+12.
+""" Write a Python program to remove lowercase substrings from a given string"""
+import re
+str1="KDeoALOklOOHserfLoAJSIskdsf"
+res=re.sub('[a-z]', '', str1)
+print(res)
+
+________________________________________________________________________________________________________________________________________________________
+13.
+""" Write a Python program to remove everything except alphanumeric characters from a string."""
+import re
+str1="**//Python Exercises// - 12. "
+print(re.sub('[\W]+','',str1))
+_____________________________________________________________________________________________________________________________________________________________
+14.
+"""Write a Python program to remove all whitespaces from a string"""
+import re
+str1 = "he has no Clearly excuse for such behavior."
+print(re.sub('[\s]','',str1))
+
+______________________________________________________________________________________________________________________________________________________
+15.
+"""Write a Python program to remove multiple spaces in a string"""
+import re
+str1="python          programming"
+print(re.sub(' +',' ',str1))
+
+________________________________________________________________________________________________________________________________________________________
+16.
+""""Write a Python program to replace whitespaces with an underscore and vice versa"""
+import re
+str1="Python Exercises"
+res=re.sub(' ','_',str1)
+print(res)
+print(re.sub('_',' ',res))
+
+________________________________________________________________________________________________________________________________________________________
+17.
+"""Write a Python program to extract year, month and date from a an url."""
+import re
+str1="https://www.washingtonpost.com/news/football-insider/wp/2016/09/02/odell-beckhams-fame-rests-on-one-stupid-little-ball-josh-norman-tells-author/"
+print(re.findall('\d+',str1))
+
+___________________________________________________________________________________________________________________________________________________________
+18.
+"""Write a Python program to find all words starting with 'a' or 'e' in a given string"""
+import re
+str1="apple bat cat dog elephant"
+print(re.findall('^[ae]\w+',str1))
+_________________________________________________________________________________________________________________________________________________________________

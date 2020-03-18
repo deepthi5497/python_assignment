@@ -1,0 +1,43 @@
+n=int(input("enter a number"))
+for i in range(n,0,-1):
+     print(n-i)*" ",i*"*"
+
+enter a number5
+ *****
+  ****
+   ***
+    **
+     *
+     
+______________________________________________________________________________________
+panagram or not
+
+string1="The quick brown fox jumps over the lazy dog".lower()
+string3=[]
+for i in string1:
+    if i not in string3:
+        if i!=" ":
+            string3.append(i)
+            print(string3)
+if len(string3)==26:
+    print("panagram")
+else:
+    print("not")
+________________________________________________________________________________________
+find consonants in a string using list comphrehension
+
+string1="this is python programming"
+string2=[i for i in string1 if i not in["a","e","i","o","u"] if i!=" "]
+print(string2)
+
+['t', 'h', 's', 's', 'p', 'y', 't', 'h', 'n', 'p', 'r', 'g', 'r', 'm', 'm', 'n', 'g']
+_________________________________________________________________________________________________________
+palindrome or not for string
+
+string1=raw_input("enter a string")
+str1=string1[::-1]
+if string1==str1:
+    print("palindrome")
+else:
+    print("not")
+______________________________________________________________________________________________________________

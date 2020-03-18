@@ -1,0 +1,154 @@
+
+2.# a)Given the following dictionary:
+
+inventory = {'gold' : 500,
+                'pouch' : ['flint', 'twine', 'gemstone'],
+                'backpack' : ['xylophone','dagger', 'bedroll','bread loaf']
+             }
+# i)Add a key to inventory called 'pocket'.
+inventory['pockect']='null'
+print(inventory)
+
+# ii)Set the value of 'pocket' to be a list consisting of the strings 'seashell', 'strange berry', and 'lint'.
+inventory["pockect"]=['seashell','strange berry','lint']
+print(inventory)
+
+# iii).sort()the items in the list stored under the 'backpack' key.
+inventory['backpack'].sort()
+print(inventory)
+
+# iv)Then.remove('dagger') from the list of items stored under the 'backpack' key.
+inventory['backpack'].remove('dagger')
+print(inventory)
+
+# v)Add 50 to the number stored under the 'gold' key.
+inventory['gold']+=50
+print(inventory)
+
+"""b) create a student details dictionary having {'student1':[marks1,marks2, marks3],'student2':[marks1,marks2,marks3]}
+
+       i)Create the dictionary as mentioned above
+
+       ii) need to perform total and average of the marks for each student
+       """
+student_details={'student1':[90,95,80],'student2':[69,90,80]}
+total=0
+for marks in student_details.keys():
+    m1=student_details[marks]
+    print(m1)
+    # total=total+marks
+    total=sum(m1)
+    print(total)
+    average=(total)//len(m1)
+    print(average)
+
+
+"""
+i) write a python script to make a simple calculator that can add, subtract, multiply and divide using functions
+
+   a) have four functions with two arguments
+
+   b) get the values from user
+
+   c) Use try and except
+
+"""
+
+try:
+    def add(a,b):
+        return a+b
+    def sub(a,b):
+        return a-b
+    def mul(a,b):
+        return a*b
+    def div(a,b):
+        return a//b
+    a = int(input("enter a value"))
+    b = int(input("enter b value"))
+    print(add(a, b))
+    print(sub(a, b))
+    print(mul(a, b))
+    print(div(a, b))
+except ValueError:
+    print("enter integer value")
+except ZeroDivisionError:
+    print("enter other value other than zero")
+
+
+
+"""
+ii)Define a function that can accept two strings as input and concatenate them and then print it as a output
+
+"""
+string1=raw_input("enter a string")
+string2=raw_input("enter another string")
+def concat(string1,string2):
+    print (string1+string2)
+concat(string1,string2)
+
+iii).write a python script having functions defined to perfrom - sum_digits(1738)
+
+output should be 1+7+3+8 = 18
+
+ 
+
+num=int(input("enter a number"))
+sum=0
+while(num>0):
+    digit=num%10
+    sum=sum+digit
+    num=num//10
+print(sum)
+
+c)  write the below contents to a file named 'marks.txt' using python script
+science = 50
+maths = 90
+english = 85
+tamil = 92
+
+i) read the file and calculate the total sum of marks available the"""
+fh=open("marks.txt",'w')
+fh.writelines("science=50\nmaths=90\nenglish=85\ntamil=92")
+fh=open("marks.txt",'r')
+s=fh.readlines()
+lis=[]
+import re
+for i in s:
+    r=re.findall("\d+",i)
+    lis.extend(r)
+print(lis)
+sum = 0
+for i in lis:
+    sum=sum+int(i)
+print(sum)
+
+
+
+"""
+iv)  write the below contents to  a file named 'marks.txt' using python script using functions
+science = 50
+maths = 90
+english = 85
+tamil = 92
+     i) read the file and calculate the total sum of marks available there
+def read_file():
+def write_file():"""
+def write_file():
+    fh=open("marks1.txt","w")
+    fh.writelines("science=50\nmaths=90\nenglish=85\ntamil=92")
+def read_file():
+    fh=open("marks.txt",'r')
+    s=fh.readlines()
+    lis=[]
+    import re
+    for i in s:
+        r=re.findall("\d+",i)
+        lis.extend(r)
+    print(lis)
+    sum = 0
+    for i in lis:
+        sum=sum+int(i)
+    print(sum)
+read_file()
+write_file()
+
